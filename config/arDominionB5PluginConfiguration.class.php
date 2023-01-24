@@ -17,7 +17,7 @@
  * along with Access to Memory (AtoM).  If not, see <http://www.gnu.org/licenses/>.
  */
 
-class arDominionB5PluginConfiguration extends sfPluginConfiguration
+class arArchivesOrPluginB5Configuration extends sfPluginConfiguration
 {
     public static $summary = 'Theme plugin made with Bootstrap 5.';
     public static $version = '0.0.1';
@@ -28,17 +28,17 @@ class arDominionB5PluginConfiguration extends sfPluginConfiguration
         // values when this method is called from child classes.
         $decoratorDirs = sfConfig::get('sf_decorator_dirs');
         $decoratorDirs[] = sfConfig::get('sf_plugins_dir')
-            .'/arDominionB5Plugin/templates';
+            .'/arArchivesOrPluginB5/templates';
         sfConfig::set('sf_decorator_dirs', $decoratorDirs);
 
         // Move this plugin to the top to allow overwriting
         // controllers and views from other plugin modules.
         $plugins = $this->configuration->getPlugins();
-        if (false !== $key = array_search('arDominionB5Plugin', $plugins)) {
+        if (false !== $key = array_search('arArchivesOrPluginB5', $plugins)) {
             unset($plugins[$key]);
         }
         $this->configuration->setPlugins(
-            array_merge(['arDominionB5Plugin'], $plugins)
+            array_merge(['arArchivesOrPluginB5'], $plugins)
         );
 
         // Indicate this is a Bootstrap 5 theme in sfConfig,
